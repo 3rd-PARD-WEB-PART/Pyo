@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import Home from "../Components/Home_Components/Home";
 
 //Home_Components의 컴포넌트들을 여기 불러오면 됨. 화면에 띄울 페이지
 function HomePage(){
 
   return(
-    <Container>
-      <Box1></Box1>
-      <Box2></Box2>
-      <Box3></Box3>
-    </Container>
+    <div>
+      <Home/>
+    </div>
   );
 }
 
