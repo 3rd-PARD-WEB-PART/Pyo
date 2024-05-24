@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useRecoilValue} from 'recoil';
+import { useRecoilValue } from 'recoil';
 import write from "../img/장수.png";
 import to_write from "../img/편지.png";
 import d_day from "../img/달력 이모지.png";
