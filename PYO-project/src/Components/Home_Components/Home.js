@@ -18,6 +18,7 @@ const Div =styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: var(--blueblack-1, #34334A);
 `;
 
