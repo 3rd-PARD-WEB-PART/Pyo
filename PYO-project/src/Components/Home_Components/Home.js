@@ -2,14 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import RecentCard from "./RecentCard";
 import ModalBtn from "../Writing_Components/ModalBtn";
+import Header from "../Layout_Components/Header";
 
 function Home (){
 
   return (
     <Div>
-      <ModalBtn/>
+      {/* <ModalBtn/>
       <RecentCard/>
-      <MoreBtn>더보기</MoreBtn>
+      <MoreBtn>더보기</MoreBtn> */}
     </Div>
   );
 }

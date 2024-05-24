@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../img/로고.png"
-import arrow from "../img/화살표.png"
+import logo from "../../img/로고.png"
+import arrow from "../../img/화살표.png"
 
 function Header() {
   return (
@@ -24,7 +24,7 @@ function Header() {
   );
 }
 
-export default HomePage;
+export default Header;
 
 const Header1 = styled.div`
 display: flex;
