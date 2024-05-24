@@ -5,7 +5,7 @@ import styled from "styled-components";
 function HomePage(){
 
   return(
-    <div>첫번째 화면</div>
+    <div>첫번째 화면 와랄랄라라라</div>
   );
 }
 
