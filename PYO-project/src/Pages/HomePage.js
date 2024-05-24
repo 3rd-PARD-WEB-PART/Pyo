@@ -10,11 +10,9 @@ function HomePage(){
   return(
     <div>
       <Header/>
-      
       <Home_row1/>
       <Home/> 
     </div>
   );
 }
-
 export default HomePage;
