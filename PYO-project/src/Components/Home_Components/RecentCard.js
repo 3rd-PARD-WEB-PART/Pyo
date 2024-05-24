@@ -56,7 +56,7 @@ function RecentCard() {
       setUserData(response);
       console.log(response);
     };
-    getData();
+    // getData();
   }, []);
 
 
