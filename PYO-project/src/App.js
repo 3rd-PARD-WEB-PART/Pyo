@@ -6,7 +6,7 @@ import HomePage from './Pages/HomePage';
 //라우터 연결 
 function App() {
   return (
-    <Routes>
+    <Routes> 
       <Route path='/' element={<HomePage/>}/>
     </Routes>
 
