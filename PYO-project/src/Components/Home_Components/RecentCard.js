@@ -58,6 +58,8 @@ const CardDiv =styled.div`
   flex-shrink: 0;
   border-radius: 20px;
   background: var(--white, #FFF);
+  position: relative;
+  top: 120px;
 `;
 
 const DateDiv =styled.div`

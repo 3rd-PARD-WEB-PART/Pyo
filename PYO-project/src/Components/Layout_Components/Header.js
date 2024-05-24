@@ -12,7 +12,7 @@ function Header() {
       <Namecontainer MarginTop='46px'>
       <Text Fontweight = '500'>김규희<Text Fontweight = '300'>님이</Text></Text>
       <Logo Width='24px' Height='24px'><img src={arrow} alt="화살표"></img></Logo>
-      <Text Fontweight = '500'>김규희<Text Fontweight = '300'>께</Text></Text>
+      <Text Fontweight = '500'>어머니<Text Fontweight = '300'>께</Text></Text>
       </Namecontainer>
       <ButtonComtainer MarginTop='41px'>
       <Button Color='white' LetterColor = '#645DFF'>편지 미리보기</Button>
