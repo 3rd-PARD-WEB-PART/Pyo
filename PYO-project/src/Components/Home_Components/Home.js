@@ -8,9 +8,9 @@ function Home (){
 
   return (
     <Div>
-      {/* <ModalBtn/>
+      <ModalBtn/>
       <RecentCard/>
-      <MoreBtn>더보기</MoreBtn> */}
+      <MoreBtn>더보기</MoreBtn>
     </Div>
   );
 }

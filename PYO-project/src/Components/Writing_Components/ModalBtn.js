@@ -16,6 +16,7 @@ function ModalBtn() {
         <WritingModal
           isOpen={isModalOpen}
           closeModal={handleModalOpen}
+
         />
     </div>
   );
