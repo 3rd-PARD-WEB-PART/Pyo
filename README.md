@@ -19,7 +19,3 @@
 
 ### ListPage
 (사진)
-
-
-### WritingPage
-(사진)
