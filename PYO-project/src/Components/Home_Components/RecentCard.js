@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Recentimg from "../../img/Recentimg.png";
+import { getAPI } from "../../API/AxiosAPI";
 
 function RecentCard() {
-  const data = [
+  /*const data = [
     {
       date: "2024. 05. 25",
       title: "파드 아이디어 피칭 날",
@@ -46,6 +47,35 @@ function RecentCard() {
       ))}
     </Div>
   );
+}*/
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await getAPI();
+      setUserData(response);
+      console.log(response);
+    };
+    getData();
+  }, []);
+
+
+const textCut = (str) => {
+  return str.length > 90 ? str.slice(0, 90) + '...' : str;
+};
+
+return (
+  <Div>
+    {userData.map((item, index) => (
+      <CardDiv key={index}>
+        <DateDiv>{item.date.letterDate}</DateDiv>
+        <Img src={Recentimg} alt="로고 이미지" />
+        <Title>{item.letterTitle}</Title>
+        <Contents>{textCut(item.letterContents)}</Contents>
+      </CardDiv>
+    ))}
+  </Div>
+);
 }
 
 export default RecentCard;
