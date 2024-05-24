@@ -8,7 +8,7 @@ function Home (){
 
   return (
     <Div>
-      <ModalBtn/>
+      <Name>규희<Names>님의 가장 최근의 니어&디어</Names></Name>
       <RecentCard/>
       <MoreBtn>더보기</MoreBtn>
     </Div>
@@ -38,6 +38,8 @@ const MoreBtn =styled.button`
   flex-shrink: 0;
   border-radius: 8px;
   background: var(--blue, #645DFF);
+  position: relative;
+  top: 130px;
 
   color: var(--, #FFF);
   text-align: center;
@@ -49,4 +51,25 @@ const MoreBtn =styled.button`
   margin-top: 100px;
     border: none;
     cursor: pointer;
+`;
+
+const Name = styled.span`
+color: var(--white, #FFF);
+font-family: Pretendard;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+position: absolute;
+top: 545px;
+left: 328px;
+`;
+
+const Names = styled.span`
+  color: var(--white, #FFF);
+font-family: Pretendard;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
 `;
