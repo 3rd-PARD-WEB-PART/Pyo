@@ -103,6 +103,7 @@ function WritingModal({ isOpen, closeModal }) {
       try {
         const response =await postletterAPI(data);
         console.log(response);
+        window.location.reload();
         closeModal();
       } catch (err) {
         console.error(err);

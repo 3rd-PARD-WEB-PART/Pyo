@@ -79,8 +79,8 @@ const Box = styled.div`
   flex-shrink: 0;
   border-radius: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   text-align: center;
   /* position: relative; 부모 요소로부터의 상대적 위치 설정 */
 `;
@@ -97,9 +97,8 @@ const Box1 = styled(Box)`
   
   p {
     margin: 0; /* 기본 마진 제거 */
-    /* position: absolute; */
-    top: 22px; /* 상단에서 22px 떨어진 위치 */
-    left: 20px; /* 왼쪽에서 20px 떨어진 위치 */
+    margin-top: 22px;
+    margin-left: 20px;
   }
 
   h1 {
@@ -110,9 +109,8 @@ font-size: 58px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-/* position: absolute; */
-top: 30px;
-left: 300px;
+ margin-top: 61px;
+ margin-left: 108px;
   }
 `;
 
@@ -120,9 +118,7 @@ const Img1 = styled.img`
 width: 24px;
 height: 24px;
 flex-shrink: 0;
-top: 22px; /* 상단에서 22px 떨어진 위치 */
-    left: 155px; /* 왼쪽에서 20px 떨어진 위치 */
-    /* position: absolute; */
+margin-top: 22px;
 `;
 
 const Box2 = styled(Box)`
@@ -137,9 +133,8 @@ const Box2 = styled(Box)`
 
   p {
     margin: 0; /* 기본 마진 제거 */
-    /* position: absolute; */
-    top: 22px; /* 상단에서 22px 떨어진 위치 */
-    left: 20px; /* 왼쪽에서 20px 떨어진 위치 */
+    margin-top: 22px;
+    margin-left: 20px;
   }
   h1 {
     color: var(--black, #161616);
@@ -149,9 +144,8 @@ font-size: 58px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-/* position: absolute; */
-top: 30px;
-left: 280px;
+margin-top: 61px;
+ margin-left: 108px;
   }
 `;
 
@@ -159,9 +153,7 @@ const Img2 = styled.img`
 width: 24px;
 height: 24px;
 flex-shrink: 0;
-top: 22px; /* 상단에서 22px 떨어진 위치 */
-    left: 155px; /* 왼쪽에서 20px 떨어진 위치 */
-    /* position: absolute; */
+margin-top: 22px;
 `;
 
 const Box3 = styled(Box)`
@@ -176,9 +168,8 @@ const Box3 = styled(Box)`
 
   p {
     margin: 0; /* 기본 마진 제거 */
-    /* position: absolute; */
-    top: 22px; /* 상단에서 22px 떨어진 위치 */
-    left: 20px; /* 왼쪽에서 20px 떨어진 위치 */
+    margin-top: 22px;
+    margin-left: 20px;
   }
   h1 {
     color: var(--black, #161616);
@@ -188,9 +179,8 @@ font-size: 58px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-/* position: absolute; */
-top: 30px;
-left: 270px;
+margin-top: 61px;
+ margin-left: 108px;
   }
 `;
 
@@ -198,9 +188,7 @@ const Img3 = styled.img`
 width: 24px;
 height: 24px;
 flex-shrink: 0;
-  top: 22px; /* 상단에서 22px 떨어진 위치 */
-  left: 155px; /* 왼쪽에서 20px 떨어진 위치 */
-  /* position: absolute; */
+margin-top: 22px;
     
 `;
 
