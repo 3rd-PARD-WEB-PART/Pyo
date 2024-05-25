@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../../img/로고.png";
 import arrow from "../../img/화살표.png";
+import ModalBtn from "../Writing_Components/ModalBtn";
 
 function Header() {
   return (
@@ -16,7 +17,8 @@ function Header() {
           </Namecontainer>
           <ButtonComtainer>
             <Button Color='white' LetterColor='#645DFF'>편지 미리보기</Button>
-            <Button Color='#645DFF' LetterColor='white'>편지 작성하기</Button>
+            <ModalBtn/>
+            {/* <Button Color='#645DFF' LetterColor='white'>편지 작성하기</Button> */}
           </ButtonComtainer>
         </Header2>
       </Header1>
@@ -108,6 +110,7 @@ const Button = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
 `;
 
 const Name = styled.span`

@@ -19,22 +19,28 @@ function Home_row1() {
 
   return (
     <Container>
-      <Name>규희<Names>님의 니어&디어 현황</Names></Name>
-      <Box1>
-        <p>작성한 편지 장수</p>
-        <Img1 src={write} className='write' />
-        <h1>{data.count}장</h1>
-      </Box1>
-      <Box2>
-        <p>작성할 편지 장수</p>
-        <Img2 src={to_write} className='to_write' />
-        <h1>{data.to_count}장</h1>
-      </Box2>
-      <Box3>
-        <p>편지 보내기 까지</p>
-        <Img3 src={d_day} className='d_day' />
-        <h1>D-{data.day}</h1>
-      </Box3>
+      <ColomnDiv>
+        <Topdiv>
+          <Name>규희<Names>님의 니어&디어 현황</Names></Name>
+        </Topdiv>
+        <Div>
+            <Box1>
+              <p>작성한 편지 장수</p>
+              <Img1 src={write} className='write' />
+              <h1>{data.count}장</h1>
+            </Box1>
+            <Box2>
+              <p>작성할 편지 장수</p>
+              <Img2 src={to_write} className='to_write' />
+              <h1>{data.to_count}장</h1>
+            </Box2>
+            <Box3>
+              <p>편지 보내기 까지</p>
+              <Img3 src={d_day} className='d_day' />
+              <h1>D-{data.day}</h1>
+            </Box3>
+        </Div>
+        </ColomnDiv>
     </Container>
   );
 }
@@ -43,13 +49,28 @@ export default Home_row1;
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 16px;
   width: 100%;
   height: auto;
   align-items: center;
   justify-content: center;
   background: var(--blueblack-1, #34334A);
+`;
+const ColomnDiv =styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Topdiv =styled.div`
+  margin-top: 120px;
+`;
+
+const Div =styled.div`
+  display: flex;
+  /* flex-direction: column; */
+  gap: 16px;
+  margin-top: 24px;
 `;
 
 const Box = styled.div`
@@ -61,7 +82,7 @@ const Box = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  position: relative; /* 부모 요소로부터의 상대적 위치 설정 */
+  /* position: relative; 부모 요소로부터의 상대적 위치 설정 */
 `;
 
 const Box1 = styled(Box)`
@@ -76,7 +97,7 @@ const Box1 = styled(Box)`
   
   p {
     margin: 0; /* 기본 마진 제거 */
-    position: absolute;
+    /* position: absolute; */
     top: 22px; /* 상단에서 22px 떨어진 위치 */
     left: 20px; /* 왼쪽에서 20px 떨어진 위치 */
   }
@@ -89,7 +110,7 @@ font-size: 58px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-position: absolute;
+/* position: absolute; */
 top: 30px;
 left: 300px;
   }
@@ -101,7 +122,7 @@ height: 24px;
 flex-shrink: 0;
 top: 22px; /* 상단에서 22px 떨어진 위치 */
     left: 155px; /* 왼쪽에서 20px 떨어진 위치 */
-    position: absolute;
+    /* position: absolute; */
 `;
 
 const Box2 = styled(Box)`
@@ -116,7 +137,7 @@ const Box2 = styled(Box)`
 
   p {
     margin: 0; /* 기본 마진 제거 */
-    position: absolute;
+    /* position: absolute; */
     top: 22px; /* 상단에서 22px 떨어진 위치 */
     left: 20px; /* 왼쪽에서 20px 떨어진 위치 */
   }
@@ -128,7 +149,7 @@ font-size: 58px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-position: absolute;
+/* position: absolute; */
 top: 30px;
 left: 280px;
   }
@@ -140,7 +161,7 @@ height: 24px;
 flex-shrink: 0;
 top: 22px; /* 상단에서 22px 떨어진 위치 */
     left: 155px; /* 왼쪽에서 20px 떨어진 위치 */
-    position: absolute;
+    /* position: absolute; */
 `;
 
 const Box3 = styled(Box)`
@@ -155,7 +176,7 @@ const Box3 = styled(Box)`
 
   p {
     margin: 0; /* 기본 마진 제거 */
-    position: absolute;
+    /* position: absolute; */
     top: 22px; /* 상단에서 22px 떨어진 위치 */
     left: 20px; /* 왼쪽에서 20px 떨어진 위치 */
   }
@@ -167,7 +188,7 @@ font-size: 58px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-position: absolute;
+/* position: absolute; */
 top: 30px;
 left: 270px;
   }
@@ -179,7 +200,7 @@ height: 24px;
 flex-shrink: 0;
   top: 22px; /* 상단에서 22px 떨어진 위치 */
   left: 155px; /* 왼쪽에서 20px 떨어진 위치 */
-  position: absolute;
+  /* position: absolute; */
     
 `;
 
@@ -190,7 +211,7 @@ font-size: 20px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-position: absolute;
+/* position: absolute; */
 top: 236px;
 left: 328px;
 `;
