@@ -2,8 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import close from "../../img/closeBtn.png";
 import talkbox from "../../img/talkbox.png";
+import { getletterAPI, postletterAPI } from "../../API/AxiosAPI";
 
 function WritingModal({ isOpen, closeModal }) {
+  const [letter, setLetter] = useState([]);
 
   const today = new Date();
 
@@ -16,30 +18,48 @@ function WritingModal({ isOpen, closeModal }) {
 
   //서버 연결하면 변수 변경할 필요있음
   const [writings, setWritings] =useState({
-    date: formattedDate,
-    title: "",
-    contents: "",
-    answer1: "",
-    answer2: ""
+    letterContents: "",
+    letterTitle: "",
+    letterDate: toString(formattedDate),
+    question1: letter[0],
+    question2: letter[1],
+    questionAnswer1: "",
+    questionAnswer2: ""
   });
 
   const titlefocus = useRef();
   const contentInput = useRef();
-  const answer1 = useRef();
-  const answer2 = useRef();
+  const questionAnswer1 = useRef();
+  const questionAnswer2 = useRef();
   
   useEffect(() => {
     if (!isOpen) {
       // Reset state values when modal is closed
       setWritings({
-        date: formattedDate,
-        title: "",
-        contents: "",
-        answer1: "",
-        answer2: ""
+        ...writings,
+        letterContents: "", 
+        letterTitle: "",
+        letterDate: formattedDate,
+        questionAnswer1: "",
+        questionAnswer2: ""
       });
     }
   }, [isOpen]);
+
+  const getletter = async () => {
+    try{
+      const response =await getletterAPI();
+      setLetter(response.data);
+      console.log(response.data);
+    }
+    catch(error){
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getletter();
+  }, []);
 
   //이벤트 핸들러
   const handleWritingInput = (e) =>{
@@ -51,32 +71,42 @@ function WritingModal({ isOpen, closeModal }) {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    console.log(letter);
     console.log(writings);
-    if (!writings.title) {
+    if (!writings.letterTitle) {
       titlefocus.current.focus();
       return;
     }
-    if (!writings.contents) {
+    if (!writings.letterContents) {
       contentInput.current.focus();
       return;
     }
-    if (!writings.answer1) {
-      answer1.current.focus();
+    if (!writings.questionAnswer1) {
+      questionAnswer1.current.focus();
       return;
     }
-    if (!writings.answer2) {
-      answer2.current.focus();
+    if (!writings.questionAnswer2) {
+      questionAnswer2.current.focus();
       return;
     }
-      // try {
-      //   const response =
-      //     method === "post"
-      //       ? await postMemberAPI(newData)
-      //       : console.log("구현필요");
-      //   closeModal();
-      // } catch (err) {
-      //   console.error(err);
-      // }
+
+    const data ={
+      letterContents: writings.letterContents,
+      letterTitle: writings.letterTitle,
+      letterDate: writings.letterDate,
+      question1: letter[0],
+      question2: letter[1],
+      questionAnswer1: writings.questionAnswer1,
+      questionAnswer2: writings.questionAnswer2
+    };
+
+      try {
+        const response =await postletterAPI(data);
+        console.log(response);
+        closeModal();
+      } catch (err) {
+        console.error(err);
+      }
   };
 
   return (
@@ -90,19 +120,19 @@ function WritingModal({ isOpen, closeModal }) {
             <EmotionDiv>😀 🙁 😭 😡 🤢</EmotionDiv>
             <Talkimg src={talkbox} alt="말풍선 아이콘"></Talkimg>
             <Talk> 오늘 기분은 어떠신가요? 이모티콘으로 표시해주세요!</Talk>
-            <TopDiv type="text" name="date" readOnly={true} value={writings.date} autoComplete="off"></TopDiv>
+            <TopDiv type="text" name="letterDate" readOnly={true} value={writings.letterDate} autoComplete="off"></TopDiv>
           </RealTopDiv>
-          <Title type="text" name="title" placeholder="제목" value={writings.title} onChange={handleWritingInput} ref={titlefocus} autoComplete="off"></Title>
-          <FreeContents name="contents" placeholder="오늘 하루 어땠는지, 가족에게 나누어 주세요! " value={writings.contents} onChange={handleWritingInput} autoComplete="off" ref={contentInput}></FreeContents>
+          <Title type="text" name="letterTitle" placeholder="제목" value={writings.letterTitle} onChange={handleWritingInput} ref={titlefocus} autoComplete="off"></Title>
+          <FreeContents name="letterContents" placeholder="오늘 하루 어땠는지, 가족에게 나누어 주세요! " value={writings.letterContents} onChange={handleWritingInput} autoComplete="off" ref={contentInput}></FreeContents>
 
           <QuestionDiv> 
             <QuestionRandomDiv>
-              <Qdiv>Q. 랜덤질문 1</Qdiv>
-              <AnswerDiv name="answer1" placeholder="답변을 작성해주세요..." value={writings.answer1} onChange={handleWritingInput} autoComplete="off" ref={answer1}></AnswerDiv>
+              <Qdiv>Q. {letter[0]}</Qdiv>
+              <AnswerDiv name="questionAnswer1" placeholder="답변을 작성해주세요..." value={writings.questionAnswer1} onChange={handleWritingInput} autoComplete="off" ref={questionAnswer1}></AnswerDiv>
             </QuestionRandomDiv>
             <QuestionRandomDiv>
-              <Qdiv>Q. 랜덤질문 2</Qdiv>
-              <AnswerDiv name="answer2" placeholder="답변을 작성해주세요..." value={writings.answer2} onChange={handleWritingInput} autoComplete="off" ref={answer2}></AnswerDiv>
+              <Qdiv>Q. {letter[1]}</Qdiv>
+              <AnswerDiv name="questionAnswer2" placeholder="답변을 작성해주세요..." value={writings.questionAnswer2} onChange={handleWritingInput} autoComplete="off" ref={questionAnswer2}></AnswerDiv>
             </QuestionRandomDiv>
           </QuestionDiv>
           

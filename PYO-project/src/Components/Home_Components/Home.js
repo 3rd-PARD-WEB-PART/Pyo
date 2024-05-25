@@ -38,7 +38,7 @@ const MoreBtn =styled.button`
   flex-shrink: 0;
   border-radius: 8px;
   background: var(--blue, #645DFF);
-  position: relative;
+  /* position: relative; */
   top: 130px;
 
   color: var(--, #FFF);
@@ -60,7 +60,7 @@ font-size: 20px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-position: absolute;
+/* position: absolute; */
 top: 545px;
 left: 328px;
 `;
