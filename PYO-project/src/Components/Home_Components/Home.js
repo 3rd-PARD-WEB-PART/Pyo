@@ -8,8 +8,10 @@ function Home (){
 
   return (
     <Div>
+      <Col>
       <Name>규희<Names>님의 가장 최근의 니어&디어</Names></Name>
       <RecentCard/>
+      </Col>
       <MoreBtn>더보기</MoreBtn>
     </Div>
   );
@@ -23,9 +25,13 @@ const Div =styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   background: var(--blueblack-1, #34334A);
 
+`;
+
+const Col =styled.div`
+  margin-top: 101px;
 `;
 
 const MoreBtn =styled.button`
@@ -67,9 +73,9 @@ left: 328px;
 
 const Names = styled.span`
   color: var(--white, #FFF);
-font-family: Pretendard;
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;
