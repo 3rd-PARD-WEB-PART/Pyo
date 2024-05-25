@@ -4,32 +4,17 @@ import Recentimg from "../../img/Recentimg.png";
 import { getAPI } from "../../API/AxiosAPI";
 
 function RecentCard() {
-  /*const data = [
-    {
-      date: "2024. 05. 25",
-      title: "파드 아이디어 피칭 날",
-      contents:
-        "엄마 곧 파드 아이디어 피칭인데, 진짜 힘들다. 신박하고 좋다고 생각한 아이디어 들고가서 피드백 받았는데, 피드백 해주시는분이 별로라고 하셔서… 하 한 2주동안 하루종일 생각해서 기획한 아이디어인데.. 이럴때 엄마면 어떻게 했을까? 우리집 가훈이 ‘노력하면 다 된다’ 잖아, 근데 노력으로 안되는것도 있는거 같다는걸 요즘 느껴.sfsdf"
-    },
-    {
-      date: "2024. 05. 27",
-      title: "파드 아이디어 피칭 날sdf",
-      contents:
-        "엄마 곧 파드 아이디어 피칭인데, 진짜 힘들다. 신박하고 좋다고 생각한 아이디어 들고가서 피드백 받았는데, 피드백 해주시는분이 별로라고 하셔서… 하 한 2주동안 하루종일 생각해서 기획한 아이디어인데.. 이럴때 엄마면 어떻게 했을까? 우리집 가훈이 ‘노력하면 다 된다’ 잖아, 근데 노력으로 안되는것도 있는거 같다는걸 요즘 느껴."
-    },
-    {
-      date: "2024. 05. 29",
-      title: "파드 아이디어 피칭 날qweeqwewq",
-      contents:
-        "엄마 곧 파드 아이디어 피칭인데, 진짜 힘들다. 신박하고 좋다고 생각한 아이디어 들고가서 피드백 받았는데, 피드백 해주시는분이 별로라고 하셔서… 하 한 2주동안 하루종일 생각해서 기획한 아이디어인데.. 이럴때 엄마면 어떻게 했을까? 우리집 가훈이 ‘노력하면 다 된다’ 잖아, 근데 노력으로 안되는것도 있는거 같다는걸 요즘 느껴.efwefwefw"
-    },
-    {
-      date: "2024. 05. 30",
-      title: "파드 아이디어 피칭 날sfsdf",
-      contents:
-        "엄마 곧 파드 아이디어 피칭인데, 진짜 힘들다. 신박하고 좋다고 생각한 아이디어 들고가서 피드백 받았는데, 피드백 해주시는분이 별로라고 하셔서… 하 한 2주동안 하루종일 생각해서 기획한 아이디어인데.. 이럴때 엄마면 어떻게 했을까? 우리집 가훈이 ‘노력하면 다 된다’ 잖아, 근데 노력으로 안되는것도 있는거 같다는걸 요즘 느껴.wegregreger"
-    }
-  ];
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await getAPI();
+      const sortedData = response.letterReadDTO.sort((a, b) => new Date(b.letterDate) - new Date(a.letterDate));
+      setUserData(sortedData.slice(0, 4));
+      console.log(response.letterReadDTO);
+    };
+    getData();
+  }, []);
 
   const textCut = (str) => {
     return str.length > 90 ? str.slice(0, 90) + '...' : str;
@@ -37,45 +22,16 @@ function RecentCard() {
 
   return (
     <Div>
-      {data.map((item, index) => (
+      {userData.map((item, index) => (
         <CardDiv key={index}>
-          <DateDiv>{item.date}</DateDiv>
+          <DateDiv>{item.letterDate}</DateDiv>
           <Img src={Recentimg} alt="로고 이미지" />
-          <Title>{item.title}</Title>
-          <Contents>{textCut(item.contents)}</Contents>
+          <Title>{item.letterTitle}</Title>
+          <Contents>{textCut(item.letterContents)}</Contents>
         </CardDiv>
       ))}
     </Div>
   );
-}*/
-  const [userData, setUserData] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const response = await getAPI();
-      setUserData(response);
-      console.log(response);
-    };
-    getData();
-  }, []);
-
-
-const textCut = (str) => {
-  return str.length > 90 ? str.slice(0, 90) + '...' : str;
-};
-
-return (
-  <Div>
-    {userData.map((item, index) => (
-      <CardDiv key={index}>
-        <DateDiv>{item.date.letterDate}</DateDiv>
-        <Img src={Recentimg} alt="로고 이미지" />
-        <Title>{item.letterTitle}</Title>
-        <Contents>{textCut(item.letterContents)}</Contents>
-      </CardDiv>
-    ))}
-  </Div>
-);
 }
 
 export default RecentCard;
