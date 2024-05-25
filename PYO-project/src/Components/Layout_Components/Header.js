@@ -3,8 +3,16 @@ import styled from "styled-components";
 import logo from "../../img/로고.png";
 import arrow from "../../img/화살표.png";
 import ModalBtn from "../Writing_Components/ModalBtn";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+
+  const navigate =useNavigate();
+
+  const onclickBtn = () =>{
+    navigate("/list");
+  }
+
   return (
     <div>
       <Header1>
@@ -16,9 +24,8 @@ function Header() {
             <Name2>어머니<Names>께</Names></Name2>
           </Namecontainer>
           <ButtonComtainer>
-            <Button Color='white' LetterColor='#645DFF'>편지 미리보기</Button>
-            <ModalBtn/>
-            {/* <Button Color='#645DFF' LetterColor='white'>편지 작성하기</Button> */}
+            <Button Color='white' LetterColor='#645DFF' onClick={onclickBtn}>편지 미리보기</Button>
+            <Button Color='#645DFF' LetterColor='white'>편지 작성하기</Button>
           </ButtonComtainer>
         </Header2>
       </Header1>
