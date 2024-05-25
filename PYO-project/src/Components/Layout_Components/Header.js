@@ -25,7 +25,8 @@ function Header() {
           </Namecontainer>
           <ButtonComtainer>
             <Button Color='white' LetterColor='#645DFF' onClick={onclickBtn}>편지 미리보기</Button>
-            <Button Color='#645DFF' LetterColor='white'>편지 작성하기</Button>
+            {/* <Button Color='#645DFF' LetterColor='white'>편지 작성하기</Button> */}
+            <ModalBtn/>
           </ButtonComtainer>
         </Header2>
       </Header1>
