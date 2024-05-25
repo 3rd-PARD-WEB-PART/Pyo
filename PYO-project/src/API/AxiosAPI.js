@@ -10,9 +10,18 @@ export const getAPI = async () => {
   }
 };
 
-export const postMemberAPI = async (data) => {
+export const postletterAPI = async (data) => {
   try {
-    const response = await axios.post("http://192.168.0.24:8080/mypage/listall", data); 
+    const response = await axios.post("http://192.168.0.24:8080/mypage/letterwrite", data); 
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const getletterAPI = async () => {
+  try {
+    const response = await axios.get("http://192.168.0.24:8080/mypage/letterwrite"); 
     return response;
   } catch (err) {
     console.error(err);

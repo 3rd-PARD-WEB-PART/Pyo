@@ -12,10 +12,12 @@ function ModalBtn() {
 
   return (
     <div>
-        <ModifyButton onClick={handleModalOpen}>MODIFY</ModifyButton>
+        <Button Color='#645DFF' LetterColor='white' onClick={handleModalOpen}>편지 작성하기</Button>
+        {/* <ModifyButton onClick={handleModalOpen}>MODIFY</ModifyButton> */}
         <WritingModal
           isOpen={isModalOpen}
           closeModal={handleModalOpen}
+
         />
     </div>
   );
@@ -33,6 +35,27 @@ const ModifyButton = styled.button`
     color: #222222;
     cursor: pointer;
   }
+`;
+
+const Button = styled.button`
+  display: flex;
+  width: 120px;
+  height: 35px;
+  padding: 8px 16px 8px 17px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  color: ${(props) => props.LetterColor};
+  border-radius: 8px;
+  border: none;
+  background: ${(props) => props.Color};
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
 `;
 
 export default ModalBtn;

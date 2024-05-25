@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../../img/로고.png";
 import arrow from "../../img/화살표.png";
+import ModalBtn from "../Writing_Components/ModalBtn";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
@@ -116,6 +117,7 @@ const Button = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
 `;
 
 const Name = styled.span`
