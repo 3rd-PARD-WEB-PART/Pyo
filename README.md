@@ -14,7 +14,7 @@ REACT, html, css, JavaScript, GitHub, Git
 
 ## 📚페이지 별 기능
 ### HomePage
-- 
+-
 
 
 ### ListPage

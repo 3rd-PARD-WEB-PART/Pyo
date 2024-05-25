@@ -1,49 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import logo from "../../img/로고.png";
 import letter from "../../img/편지.png";
 import cry from "../../img/우는표정.png";
+import { getAPI } from "../../API/AxiosAPI";
 
 function List_header() {
-  const data = [
-    {
-      date: "2024. 05. 25",
-      name: "규희",
-      day: "26",
-      pages: "14",
-      title: "파드 아이디어 피칭 날",
-      contents: "엄마 곧 파드 아이디어 피칭인데, 진짜 힘들다. 신박하고 좋다고 생각한 아이디어 들고가서 피드백 받았는데, 피드백 해주시는분이 별로라고 하셔서… 하 한 2주동안 하루종일 생각해서 기획한 아이디어인데.. 이럴때 엄마면 어떻게 했을까? 우리집 가훈이 ‘노력하면 다 된다’ 잖아, 근데 노력으로 안되는것도 있는거 같다는걸 요즘 느껴.엄마 곧 파드 아이디어 피칭인데, 진짜 힘들다. 신박하고 좋다고 생각한 아이디어 들고가서 피드백 받았는데, 피드백 해주시는분이 별로라고 하셔서… 하 한 2주동안 하루종일 생각해서 기획한 아이디어인데.. 이럴때 엄마면 어떻게 했을까? 우리집 가훈이 ‘노력하면 다 된다’ 잖아, 근데 노력으로 안되는것도 있는거 같다는걸 요즘 느껴."
-    },
-    {
-      date: "2024. 05. 24",
-      name: "규희",
-      day: "26",
-      pages: "14",
-      title: "파드 숏커톤 날",
-      contents: "엄마 곧 파드 아이디어 피칭인데, 진짜 힘들다. 신박하고 좋다고 생각한 아이디어 들고가서 피드백 받았는데, 피드백 해주시는분이 별로라고 하셔서… 하 한 2주동안 하루종일 생각해서 기획한 아이디어인데.. 이럴때 엄마면 어떻게 했을까? 우리집 가훈이 ‘노력하면 다 된다’ 잖아, 근데 노력으로 안되는것도 있는거 같다는걸 요즘 느껴.엄마 곧 파드 아이디어 피칭인데, 진짜 힘들다. 신박하고 좋다고 생각한 아이디어 들고가서 피드백 받았는데, 피드백 해주시는분이 별로라고 하셔서… 하 한 2주동안 하루종일 생각해서 기획한 아이디어인데.. 이럴때 엄마면 어떻게 했을까? 우리집 가훈이 ‘노력하면 다 된다’ 잖아, 근데 노력으로 안되는것도 있는거 같다는걸 요즘 느껴."
-    }
-  ];
+  const [userData, setUserData] = useState([]);
+  const [letterData, setLetterData] = useState([]);
+
+  
+  useEffect(() => {
+    const getData = async () => {
+      const response = await getAPI();
+      setUserData(response);
+      console.log(response);
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await getAPI();
+      setLetterData(response.letterReadDTO);
+      console.log(response);
+    };
+    getData();
+  }, []);
 
   return (
     <Div>
       <Container>
         <Logo src={logo} />
         <Y_Box>
-          <Letter src={letter} />
-          <p>
-            <Bold>{data[0].name}</Bold>님이 <Bold>어머니</Bold>께<br />
-            <Bold>{data[0].day}</Bold>일동안 <Bold>{data[0].pages}</Bold>장의 편지를 작성했어요!
-          </p>
-        </Y_Box>
-        {data.map((item, index) => (
+        <Letter src={letter} />
+    <p>
+      <Bold>규희</Bold>님이 <Bold>어머니</Bold>께<br />
+      <Bold>{userData.userDDay}</Bold>일동안 <Bold>{userData.userLetterCount}</Bold>장의 편지를 작성했어요!
+    </p>
+  
+</Y_Box>
+        {letterData.map((item, index) => (
           <D_Box key={index}>
             <InfoRows>
-              <DateDiv>{item.date}</DateDiv>
+              <DateDiv>{item.letterDate}</DateDiv>
               <Emoticon src={cry} />
             </InfoRows>
             <Lettercontainer>
-              <Title>{item.title}</Title>
-              <Contents>{item.contents}</Contents>
+              <Title>{item.letterTitle}</Title>
+              <Contents>{item.letterContents}</Contents>
             </Lettercontainer>
           </D_Box>
         ))}
